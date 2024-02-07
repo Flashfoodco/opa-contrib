@@ -17,6 +17,7 @@ dependencies = {
    "lua-cjson",
    "lua-resty-http",
    "lua-resty-jwt",
+   "net-url",
 }
 test_dependencies = {
    "luacov",

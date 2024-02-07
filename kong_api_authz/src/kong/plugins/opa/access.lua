@@ -2,6 +2,7 @@ local cjson_safe = require "cjson.safe"
 local http = require "resty.http"
 local jwt = require "resty.jwt"
 local helpers = require "kong.plugins.opa.helpers"
+local url = require "net.url"
 
 -- module
 local _M = {}
@@ -47,17 +48,26 @@ function _M.execute(conf)
     local authorization = ngx.var.http_authorization
 
     -- decode JWT token
+    local encoded_token = ""
     local token = {}
     if authorization and string.find(authorization, "Bearer") then
-        local encoded_token = authorization:gsub("Bearer ", "")
+        encoded_token = authorization:gsub("Bearer ", "")
         token = jwt:load_jwt(encoded_token)
+    end
+
+    -- add query string
+    local query = {}
+    if ngx.var.args ~= nil then
+        query = url.parseQuery(ngx.var.args)
     end
 
     -- input document that will be send to opa
     local input = {
+        encoded_token = encoded_token,
         token = token,
         method = ngx.var.request_method,
         path = ngx.var.upstream_uri,
+        query = query,
         headers = helpers.filterHeaders(ngx.req.get_headers(), conf.document and conf.document.include_headers)
     }
 
