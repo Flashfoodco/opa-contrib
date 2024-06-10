@@ -1,4 +1,4 @@
-local access = require "kong.plugins.opa.access"
+local access = require "kong.plugins.opa-contrib.access"
 
 local OpaHandler = {
   -- This plugin should be executed after any authentication plugins enabled on the Service or Route.
@@ -10,7 +10,7 @@ local OpaHandler = {
 
 -- Execute OPA query on every request from a client, before it is being proxied to the upstream service
 function OpaHandler:access(conf)
-  kong.log.debug("executing plugin \"opa\": access")
+  kong.log.debug("executing plugin \"opa-contrib\": access")
   access.execute(conf)
 end
 

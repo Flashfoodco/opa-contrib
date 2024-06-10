@@ -6,7 +6,7 @@ describe("opa:helpers", function()
     package.path = package.path..";spec/?.lua"
     -- override module loader to use fake modules
     -- load opa:access module
-    helpers = require("kong.plugins.opa.helpers")
+    helpers = require("kong.plugins.opa-contrib.helpers")
   end)
 
   describe("filterHeaders function", function()

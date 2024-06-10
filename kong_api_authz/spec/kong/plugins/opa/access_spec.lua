@@ -45,7 +45,7 @@ describe("opa:access", function()
     package.loaded["resty.http"] = require("__mocks__.resty.http")
     package.loaded["resty.jwt"] = require("__mocks__.resty.jwt")
     -- load opa:access module
-    access = require("kong.plugins.opa.access")
+    access = require("kong.plugins.opa-contrib.access")
   end)
 
   before_each(function()

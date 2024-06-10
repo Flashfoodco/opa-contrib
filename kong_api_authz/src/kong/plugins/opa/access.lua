@@ -1,7 +1,7 @@
 local cjson_safe = require "cjson.safe"
 local http = require "resty.http"
 local jwt = require "resty.jwt"
-local helpers = require "kong.plugins.opa.helpers"
+local helpers = require "kong.plugins.opa-contrib.helpers"
 local url = require "net.url"
 
 -- module

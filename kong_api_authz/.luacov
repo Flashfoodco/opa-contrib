@@ -1,13 +1,13 @@
 --- Project specific configuration.
 -- @return a table of options
 return {
-    
+
     -- Run reporter on completion?
     runreport = true,
 
-    -- Lua patterns for files to include when reporting. 
-    -- All will be included if nothing is listed. 
-    -- Do not include the '.lua' extension. Path separator is always '/'. 
+    -- Lua patterns for files to include when reporting.
+    -- All will be included if nothing is listed.
+    -- Do not include the '.lua' extension. Path separator is always '/'.
     -- Overruled by exclude.
     include = {
         "src/.+$",  -- everything namespaced underneath src
@@ -22,13 +22,13 @@ return {
     },
 
     -- Table mapping names of modules to be included to their filenames.
-    -- Has no effect if empty. Real filenames mentioned here will be used 
-    -- for reporting even if the modules have been installed elsewhere. 
-    -- Module name can contain '*' wildcard to match groups of modules, 
-    -- in this case corresponding path will be used as a prefix directory 
+    -- Has no effect if empty. Real filenames mentioned here will be used
+    -- for reporting even if the modules have been installed elsewhere.
+    -- Module name can contain '*' wildcard to match groups of modules,
+    -- in this case corresponding path will be used as a prefix directory
     -- where modules from the group are located.
     modules = {
-        ["kong.plugins.opa"] = "src/kong/plugins/opa/handler.lua",
-        ["kong.plugins.opa.*"] = "src",
+        ["kong.plugins.opa-contrib"] = "src/kong/plugins/opa/handler.lua",
+        ["kong.plugins.opa-contrib.*"] = "src",
     }
 }
