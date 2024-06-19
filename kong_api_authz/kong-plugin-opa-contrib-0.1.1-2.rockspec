@@ -2,15 +2,15 @@ rockspec_format = "3.0"
 package = "kong-plugin-opa-contrib"
 version = "0.1.1-2"
 source = {
-   url = "git+https://github.com/open-policy-agent/contrib.git",
-   tag = "v0.1.1",
+   url = "git+https://github.com/Flashfoodco/opa-contrib.git",
+   branch = "kong-plugin-mods",
 }
 description = {
    summary = "Integrate the Open Policy Agent (OPA) with Kong API Gateway for API access management",
    detailed = [[
-      see https://github.com/open-policy-agent/contrib/tree/master/kong_plugin_opa for more information
+      see https://github.com/Flashfoodco/opa-contrib/tree/main/kong_api_authz for more information
    ]],
-   homepage = "https://github.com/open-policy-agent/contrib/tree/master/kong_plugin_opa",
+   homepage = "https://github.com/Flashfoodco/opa-contrib/tree/main/kong_api_authz",
    issues_url = "https://github.com/open-policy-agent/contrib/issues",
 }
 dependencies = {
